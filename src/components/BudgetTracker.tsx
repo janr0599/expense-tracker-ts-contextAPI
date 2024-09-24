@@ -12,11 +12,11 @@ function BudgetTracker() {
           type="button"
           className="bg-pink-600 w-full p-2 text-white uppercase font-bold"
         >
-          Reiniciar App
+          Reset App
         </button>
-        <AmountDisplay label="Presupuesto" amount={300} />
-        <AmountDisplay label="Disponible" amount={200} />
-        <AmountDisplay label="Gastado" amount={100} />
+        <AmountDisplay label="Budget" amount={300} />
+        <AmountDisplay label="Spent" amount={100} />
+        <AmountDisplay label="Available" amount={200} />
       </div>
     </div>
   );

@@ -36,7 +36,7 @@ export const budgetReducer = (
   if (action.type === "hide-modal") {
     return {
       ...state,
-      modal: true,
+      modal: false,
     };
   }
 

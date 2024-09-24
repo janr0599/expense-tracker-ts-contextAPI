@@ -25,7 +25,7 @@ function BudgetForm() {
           htmlFor="budget"
           className="text-4xl text-blue-600 font-bold text-center"
         >
-          Definir presupuesto
+          Define Budget
         </label>
 
         <input
@@ -41,7 +41,7 @@ function BudgetForm() {
 
       <input
         type="submit"
-        value="Definir Presupuesto"
+        value="Accept"
         className="bg-blue-600 hover:bg-blue-700 cursor-pointer w-full p-2 text-white font-black uppercase transition-colors disabled:opacity-10 disabled:cursor-not-allowed"
         disabled={isValid}
       />
