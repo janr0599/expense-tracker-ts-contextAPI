@@ -32,7 +32,7 @@ function ExpenseDetail({ expense }: ExpenseDetailProps) {
           dispatch({ type: "get-expense-by-id", payload: { id: expense.id } })
         }
       >
-        Actualizar
+        Update
       </SwipeAction>
     </LeadingActions>
   );
@@ -45,7 +45,7 @@ function ExpenseDetail({ expense }: ExpenseDetailProps) {
         }
         destructive={true}
       >
-        Eliminar
+        Delete
       </SwipeAction>
     </TrailingActions>
   );

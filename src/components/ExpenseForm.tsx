@@ -71,7 +71,7 @@ function ExpenseForm() {
   return (
     <form className="space-y-5" onSubmit={handleSubmit}>
       <legend className="uppercase text-center text-2xl font-black border-b-4 border-blue-500 py-2">
-        New Expense
+        {state.editingID ? "Update Expense" : "New Expense"}
       </legend>
 
       {error && <ErrorMessage>{error}</ErrorMessage>}
@@ -140,7 +140,7 @@ function ExpenseForm() {
       <input
         type="submit"
         className="bg-blue-600 cursor-pointer w-full p-2 text-white uppercase"
-        value={state.editingID ? "Update Expense" : "Record Expense"}
+        value={state.editingID ? "Update" : "Record"}
       />
     </form>
   );
