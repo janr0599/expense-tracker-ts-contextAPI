@@ -1,4 +1,4 @@
-import { useState, ChangeEvent } from "react";
+import { useState, ChangeEvent, useEffect } from "react";
 import { categories } from "../data/categories";
 import DatePicker from "react-date-picker";
 import "react-date-picker/dist/DatePicker.css";
@@ -16,7 +16,7 @@ function ExpenseForm() {
   });
 
   const [error, setError] = useState("");
-  const { dispatch } = useBudget();
+  const { dispatch, state } = useBudget();
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>
@@ -45,9 +45,28 @@ function ExpenseForm() {
       return;
     }
 
-    //Record expense
-    dispatch({ type: "record-expense", payload: { expense } });
+    //Update expense
+    if (state.editingID) {
+      dispatch({
+        type: "update-expense",
+        payload: { expense: { ...expense, id: state.editingID } },
+      });
+    } else {
+      //Record expense
+      dispatch({ type: "record-expense", payload: { expense } });
+    }
   };
+
+  useEffect(() => {
+    if (state.editingID) {
+      const editingExpense = state.expenses.filter(
+        (expense) => expense.id === state.editingID
+      )[0];
+
+      setExpense(editingExpense);
+      console.log(editingExpense);
+    }
+  }, [state.editingID]);
 
   return (
     <form className="space-y-5" onSubmit={handleSubmit}>
@@ -121,7 +140,7 @@ function ExpenseForm() {
       <input
         type="submit"
         className="bg-blue-600 cursor-pointer w-full p-2 text-white uppercase"
-        value="record expense"
+        value={state.editingID ? "Update Expense" : "Record Expense"}
       />
     </form>
   );
