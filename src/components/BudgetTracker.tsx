@@ -4,7 +4,7 @@ import AmountDisplay from "./AmountDisplay";
 import "react-circular-progressbar/dist/styles.css";
 
 function BudgetTracker() {
-  const { state, totalExpenses, remainingBudget } = useBudget();
+  const { state, totalExpenses, remainingBudget, dispatch } = useBudget();
 
   const percentage = +((totalExpenses / state.budget) * 100).toFixed(2); // .toFixed returns a string with max 2 decimals, hence I used the plus sign at the beginning to return a number
 
@@ -28,6 +28,7 @@ function BudgetTracker() {
         <button
           type="button"
           className="bg-pink-600 w-full p-2 text-white uppercase font-bold"
+          onClick={() => dispatch({ type: "reset-app" })}
         >
           Reset App
         </button>
