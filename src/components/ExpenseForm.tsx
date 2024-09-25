@@ -16,7 +16,8 @@ function ExpenseForm() {
   });
 
   const [error, setError] = useState("");
-  const { dispatch, state } = useBudget();
+  const [previousAmount, setPreviousAmount] = useState(0);
+  const { dispatch, state, remainingBudget } = useBudget();
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>
@@ -45,6 +46,13 @@ function ExpenseForm() {
       return;
     }
 
+    if (previousAmount - expense.amount > remainingBudget) {
+      setError(
+        `Not enough budget balance. Remaninig balance: $${remainingBudget}`
+      );
+      return;
+    }
+
     //Update expense
     if (state.editingID) {
       dispatch({
@@ -55,6 +63,15 @@ function ExpenseForm() {
       //Record expense
       dispatch({ type: "record-expense", payload: { expense } });
     }
+
+    //Clear state
+    setExpense({
+      amount: 0,
+      expenseName: "",
+      category: "",
+      date: new Date(),
+    });
+    setPreviousAmount(0);
   };
 
   useEffect(() => {
@@ -64,7 +81,7 @@ function ExpenseForm() {
       )[0];
 
       setExpense(editingExpense);
-      console.log(editingExpense);
+      setPreviousAmount(editingExpense.amount);
     }
   }, [state.editingID]);
 
