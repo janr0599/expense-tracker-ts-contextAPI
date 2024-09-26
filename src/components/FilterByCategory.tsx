@@ -5,7 +5,7 @@ function FilterByCategory() {
   const { dispatch } = useBudget();
 
   return (
-    <div className="bg-white shadow-lg rounded-lg mt-10 px-5 py-10">
+    <div className="bg-white shadow-lg rounded-lg px-5 py-10">
       <form>
         <div className="flex flex-col md:flex-row md:items-center gap-5">
           <label
