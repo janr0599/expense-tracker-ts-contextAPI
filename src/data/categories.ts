@@ -8,4 +8,8 @@ export const categories: Category[] = [
   { id: "5", name: "Leisure", icon: "leisure" },
   { id: "6", name: "Health", icon: "health" },
   { id: "7", name: "Subscriptions", icon: "subscriptions" },
+  { id: "8", name: "Personal Care", icon: "personal_care" },
+  { id: "9", name: "Clothing", icon: "clothing" },
+  { id: "10", name: "Gaming", icon: "gaming" },
+  { id: "11", name: "Technology", icon: "technology" },
 ];

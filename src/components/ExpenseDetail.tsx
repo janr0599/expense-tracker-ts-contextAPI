@@ -61,7 +61,7 @@ function ExpenseDetail({ expense }: ExpenseDetailProps) {
           <div className="pointer-events-none">
             <img
               src={`/icon_${categoryInfo.icon}.svg`}
-              alt="Categgory Icon"
+              alt="Category Icon"
               className="w-20"
             />
           </div>

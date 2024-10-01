@@ -20,7 +20,7 @@ function BudgetTracker() {
             textColor: percentage === 100 ? "#DC2626" : "#3b82f6",
             pathTransitionDuration: 3,
           })}
-          text={`${percentage}% Gastado`}
+          text={`${percentage}% Spent`}
         />
       </div>
 
